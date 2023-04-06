@@ -14,9 +14,7 @@ function time() {
   }
 
   function twelveHour(x) {
-    x = x > 12 ? x - 12 : 
-    (x == 0) ? (x = 12) : 
-    x;
+    x = x > 12 ? x - 12 : x == 0 ? (x = 12) : x;
     return x;
   }
 
@@ -26,71 +24,77 @@ function time() {
   }
 
   function greeting(h) {
-      let greet = 0 <= h && h < 6 ? 'Good night,' : 
-      (6 <= h && h< 12) ? 'Good morning,' : 
-      (12 <= h && h< 18) ? 'Good afternoon,' : 
-      'Good evening,';
-      return greet;
-    }
+    let greet =
+      0 <= h && h < 6
+        ? "Good night,"
+        : 6 <= h && h < 12
+        ? "Good morning,"
+        : 12 <= h && h < 18
+        ? "Good afternoon,"
+        : "Good evening,";
+    return greet;
+  }
 
-    function background(h) {
-      let bg = 0 <= h && h< 6 ? 'night.jpg' : 
-      (6 <= h && h< 12) ? 'morning.jpg' : 
-      (12 <= h && h< 18) ? 'afternoon.jpg' : 
-      'evening.jpg';
-      
-      $("html").css("backgroundImage", `url('../StartPage/img/${bg}')`);
-    }
-    
-    $("#time").text(
-      `${addZero(twelveHour(hours))}:${addZero(minutes)}:${addZero(
-        seconds
-      )} ${AmPm(hours)}`
-    );
+  function background(h) {
+    let bg =
+      0 <= h && h < 6
+        ? "night.jpg"
+        : 6 <= h && h < 12
+        ? "morning.jpg"
+        : 12 <= h && h < 18
+        ? "afternoon.jpg"
+        : "evening.jpg";
 
-    $("#greeting").text(greeting(hours));
+    $("html").css("backgroundImage", `url('img/${bg}')`);
+  }
 
-    background(hours);
+  $("#time").text(
+    `${addZero(twelveHour(hours))}:${addZero(minutes)}:${addZero(
+      seconds
+    )} ${AmPm(hours)}`
+  );
 
+  $("#greeting").text(greeting(hours));
+
+  background(hours);
 }
 
-$("[contenteditable ='true']").bind("keydown", function(e) {
+$("[contenteditable ='true']").bind("keydown", function (e) {
   var target = $(e.target);
   c = e.keyCode;
-  
-  if(c === 13 || c === 27) {
-      $("[contenteditable ='true']").blur();
-      // Workaround for webkit's bug
-      window.getSelection().removeAllRanges();
+
+  if (c === 13 || c === 27) {
+    $("[contenteditable ='true']").blur();
+    // Workaround for webkit's bug
+    window.getSelection().removeAllRanges();
   }
 });
 
 function getName() {
-  if (localStorage.getItem('name') === null) {
-    $('#name').text('INPUT_NAME')
-  }else{
-    $('#name').html(localStorage.getItem('name'))
+  if (localStorage.getItem("name") === null) {
+    $("#name").text("INPUT_NAME");
+  } else {
+    $("#name").html(localStorage.getItem("name"));
   }
 }
 
 function getFocus() {
-  if (localStorage.getItem('focus') === null) {
-    $('#focus').text('INPUT_FOCUS')
-  }else{
-    $('#focus').html(localStorage.getItem('focus'))
-      
+  if (localStorage.getItem("focus") === null) {
+    $("#focus").text("INPUT_FOCUS");
+  } else {
+    $("#focus").html(localStorage.getItem("focus"));
   }
 }
 
 function setName() {
-  localStorage.setItem('name', $('#name').text())
+  localStorage.setItem("name", $("#name").text());
 }
 
 function setFocus() {
-  localStorage.setItem('focus', $('#focus').text())
+  localStorage.setItem("focus", $("#focus").text());
 }
 
-$('#name').on('blur', setName)
-$('#focus').on('blur', setFocus)
+$("#name").on("blur", setName);
+$("#focus").on("blur", setFocus);
 getName();
 getFocus();
