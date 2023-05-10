@@ -1,4 +1,6 @@
-const API_KEY = "c3d79dc314d5b27f6e6a51b8f09a47e8";
+// require("dotenv").config();
+const API_KEY = proccess.env.API_KEY;
+
 let LAT, LON;
 const UNITS = "metric";
 const url = new URL(`https://api.openweathermap.org/data/2.5/weather`);

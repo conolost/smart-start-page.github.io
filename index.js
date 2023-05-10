@@ -1,7 +1,6 @@
 $(document).ready(() => {
   setInterval(time, 1000);
 });
-
 function time() {
   let now = new Date();
   let hours = now.getHours();
