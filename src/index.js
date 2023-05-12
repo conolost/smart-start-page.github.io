@@ -1,3 +1,13 @@
+import "./styles.css";
+
+// require("dotenv")
+// const dotenv = require("dotenv-webpack");
+// dotenv.config();
+
+import "jquery";
+import "popper.js";
+import "./api.js";
+
 $(document).ready(() => {
   setInterval(time, 1000);
 });
@@ -44,7 +54,7 @@ function time() {
         ? "afternoon.jpg"
         : "evening.jpg";
 
-    $("html").css("backgroundImage", `url('img/${bg}')`);
+    $("html").css("backgroundImage", `url('./img/${bg}')`);
   }
 
   $("#time").text(
@@ -58,9 +68,9 @@ function time() {
   background(hours);
 }
 
-$("[contenteditable ='true']").bind("keydown", function (e) {
-  var target = $(e.target);
-  c = e.keyCode;
+$("[contenteditable ='true']").bind("keydown", function (event) {
+  var target = $(event.target);
+  let c = event.keyCode;
 
   if (c === 13 || c === 27) {
     $("[contenteditable ='true']").blur();
