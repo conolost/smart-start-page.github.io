@@ -44,6 +44,7 @@ h1{
     border: 2px solid white;
     border-radius: 30px;
     padding: 15px;
+    background: rgba(42, 42, 41, 0.255);
 
 }
 
@@ -55,4 +56,9 @@ h1{
 .weather__temp{
     margin-top: -20px;
     text-align: center;
+}
+
+.weather__city{
+    margin-bottom: 10px;
+    text-transform: uppercase;
 }

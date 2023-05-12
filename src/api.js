@@ -20,7 +20,15 @@ const getLocation = () => {
   }
 };
 
-getLocation();
+navigator.permissions
+  .query({ name: "geolocation" })
+  .then((permissionStatus) => {
+    getLocation();
+
+    permissionStatus.onchange = () => {
+      getLocation();
+    };
+  });
 
 const loadWeather = async () => {
   const response = await fetch(url);
@@ -28,9 +36,9 @@ const loadWeather = async () => {
   if (response.ok) {
     getWeather(rdata);
   } else {
-    console.log(response.message);
+    console.error(response.message);
   }
-  console.log(rdata);
+  // console.log(rdata);
 };
 
 const getWeather = (data) => {
@@ -49,8 +57,8 @@ const getWeather = (data) => {
       <div class="weather__icon">
         <img src="https://openweathermap.org/img/w/${weatherIcon}.png" alt="${weatherStatus}" />
       </div>
-      <div class="weather__temp">${temp}℃</div>
-      <div class="weather__feels-like">Feels like: ${feelsLike}℃</div>
+      <div class="weather__temp">${temp} ℃</div>
+      <div class="weather__feels-like">Feels like: ${feelsLike} ℃</div>
     </div>
   `;
   weatherBlock.innerHTML = template;
