@@ -1,39 +1,33 @@
-*{
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-}
-
-html, 
+html,
 body {
     font-family: 'Fredoka One', cursive;
     color: rgb(221, 193, 193);
     height: 100%;
     font-size: 16px;
 }
-
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
 body{
     align-items: center;
     display: flex;
     justify-content: center;
     filter: blur(0.5px)  contrast(200%) drop-shadow(0px 10px 8px black) ;
 }
-
 #container{
     flex-direction: column;
     display: flex;
     align-items: center;
 }
-
 #time{
     font-size: 6rem;
     padding-bottom: 10px;
 }
-
 h1{
     padding-bottom: 50px;
 }
-
 .weather{
     position: absolute;
     top: 5%;
@@ -45,19 +39,15 @@ h1{
     border-radius: 30px;
     padding: 15px;
     background: rgba(42, 42, 41, 0.255);
-
 }
-
 .weather__icon img{
     width: 100px;
     height: 100px;
 }
-
 .weather__temp{
     margin-top: -20px;
     text-align: center;
 }
-
 .weather__city{
     margin-bottom: 10px;
     text-transform: uppercase;
