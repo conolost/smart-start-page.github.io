@@ -1,9 +1,4 @@
 import "./styles.css";
-
-// require("dotenv")
-// const dotenv = require("dotenv-webpack");
-// dotenv.config();
-
 import "jquery";
 import "popper.js";
 import "./api.js";

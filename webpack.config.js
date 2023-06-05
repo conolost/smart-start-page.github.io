@@ -5,6 +5,7 @@ const Dotenv = require("dotenv-webpack");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
+  mode: "production",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "./dist"),
