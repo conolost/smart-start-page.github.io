@@ -54,7 +54,9 @@ module.exports = {
       filename: "index.html",
       inject: "body",
     }),
-    new Dotenv(),
+    new Dotenv({
+      systemvars: true,
+    }),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
@@ -68,5 +70,4 @@ module.exports = {
       ],
     }),
   ],
-  mode: "development",
 };
